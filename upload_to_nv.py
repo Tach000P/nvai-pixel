@@ -31,7 +31,9 @@ session.cookies.update(cookies)
 
 def send_message(image_url: str):
 
-    if image_url:
+    if image_url == "Генерирую...":
+        msg = "<b>Генерирую...</b>"
+    elif image_url:
         msg = f'<img src="{image_url}" />'
     else: 
         msg = "Пожалуйста, отправьте текст для генерации"
@@ -121,10 +123,12 @@ while isFree:
         last_msg = get_last_message(GROUP_ID)
 
         if last_msg.startswith("@"):
-            isFree = False
-            generate_image(last_msg)
-            upload_image("./image.jpg")
-            isFree = True
+            if len(last_msg) > 1:
+                send_message("Генерирую...")
+                isFree = False
+                generate_image(last_msg)
+                upload_image("./image.jpg")
+                isFree = True
     except Exception as e:
         print(e)
 
