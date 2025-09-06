@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests beautifulsoup4 g4f[all] ffmpeg
+          pip install -U requests beautifulsoup4 g4f[all] -U g4f[image]
 
       - name: Run single check
         env:
