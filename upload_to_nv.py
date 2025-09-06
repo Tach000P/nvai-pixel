@@ -9,7 +9,7 @@ GROUP_ID = 352
 
 isFree = True
 
-COOKIES_JSON = os.getenv('COOKIES_JSON')
+COOKIES_JSON = os.environ.get('COOKIES_JSON')
 
 cookies = json.loads(COOKIES_JSON)
 
