@@ -8,17 +8,7 @@ GROUP_ID = 352
 
 isFree = True
 
-cookies = {
-    '_ym_d': '1757020482',
-    '_ym_isad': '1',
-    '_ym_uid': '1757020482489896953',
-    'auth_key': 'phcT6i48ICVGeI5zXqcEC31t4y%2BRio2quegeGG6AkNiIAQraP9hsaC3VJ5cjgt0l',
-    'beget': 'begetok',
-    'device_id': '0f3714b36a0da8298ec4eac27dfd623f',
-    'first_id': '11139',
-    'PHPSESSID': '641a20dd1e69f3c7cd6b200e14e4a383',
-    'theme': 'dark',
-}
+cookies = os.getenv('COOKIES_JSON')
 
 headers = {
     "User-Agent": "Mozilla/5.0",
