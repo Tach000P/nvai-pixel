@@ -3,12 +3,15 @@ import os
 from bs4 import BeautifulSoup
 import time
 from generate_image import generate_image
+import json
 
 GROUP_ID = 352
 
 isFree = True
 
-cookies = os.getenv('COOKIES_JSON')
+COOKIES_JSON = os.getenv('COOKIES_JSON')
+
+cookies = json.loads(COOKIES_JSON)
 
 headers = {
     "User-Agent": "Mozilla/5.0",
