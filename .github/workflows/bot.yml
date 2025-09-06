@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -U requests beautifulsoup4 g4f[all] -U g4f[image]
+          pip install -U requests beautifulsoup4 g4f==0.6.2.2
 
       - name: Run single check
         env:
