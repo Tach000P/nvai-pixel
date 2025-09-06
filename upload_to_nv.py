@@ -2,7 +2,6 @@ import requests
 import os
 from bs4 import BeautifulSoup
 import time
-# import json
 from generate_image import generate_image
 
 GROUP_ID = 352
@@ -32,7 +31,7 @@ session.cookies.update(cookies)
 def send_message(image_url: str):
 
     if image_url == "Генерирую...":
-        msg = "<b>Генерирую...</b>"
+        msg = f"<b>{image_url}</b>"
     elif image_url:
         msg = f'<img src="{image_url}" />'
     else: 
