@@ -4,7 +4,7 @@ import requests
 def generate_image(prompt: str):
     client = Client()
     response = client.images.generate(
-        model="flux",
+        model="gpt-image-1",
         prompt=prompt,
         response_format="url"
     )
