@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 import time
 from generate_image import generate_image
 import json
+from dotenv import load_dotenv
+
+load_dotenv()
 
 GROUP_ID = 352
 
@@ -12,6 +15,7 @@ isFree = True
 COOKIES_JSON = os.getenv('COOKIES_JSON')
 
 cookies = json.loads(COOKIES_JSON)
+
 
 headers = {
     "User-Agent": "Mozilla/5.0",
@@ -123,5 +127,6 @@ while isFree:
                 isFree = True
     except Exception as e:
         print(e)
+        time.sleep(5)
 
-    time.sleep(1)
+    time.sleep(2)
