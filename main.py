@@ -16,12 +16,6 @@ COOKIES_JSON = os.getenv('COOKIES_JSON')
 
 cookies = json.loads(COOKIES_JSON)
 
-
-headers = {
-    "User-Agent": "Mozilla/5.0",
-    "Referer": f"https://nolvoprosov.ru/groups/{GROUP_ID}",
-}
-
 session = requests.Session()
 session.cookies.update(cookies)
 
@@ -44,7 +38,7 @@ def send_message(image_url: str):
         "rs[plan]": "simple",
         "text": msg,
     }
-    r = session.post(url, data=payload, headers=headers)
+    r = session.post(url, data=payload)
     r.raise_for_status()
 
 def upload_image (image_path):
@@ -64,7 +58,6 @@ def upload_image (image_path):
             # Отправляем POST запрос
             response = session.post(
                 url,
-                headers=headers,
                 cookies=cookies,
                 files=files
             )
@@ -82,7 +75,6 @@ def upload_image (image_path):
                 print(f"Ошибка загрузки: {result}")
                 return "Бот не смог заргрузить файл"
             
-                
         else:
             print(f"HTTP ошибка: {response.status_code}")
             return None
@@ -93,8 +85,8 @@ def upload_image (image_path):
 
 def get_last_message(group_id: int):
     """Парсим страницу и достаем последнее сообщение с максимальным контекстом"""
-    url = f"https://nolvoprosov.ru/groups/{group_id}"
-    r = session.get(url, headers=headers)
+    url = f"https://nolvoprosov.ru/groups/352"
+    r = session.get(url)
     r.raise_for_status()
 
     soup = BeautifulSoup(r.text, "html.parser")
